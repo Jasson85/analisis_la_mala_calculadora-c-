@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 
 namespace BadCalc_VeryBad
 {
-   
-    /// Clase que contiene las operaciones matemáticas disponibles en la calculadora    
+    /// <summary>
+    /// Clase que contiene las operaciones matemáticas disponibles en la calculadora
+    /// </summary>
     public static class Operations
     {
-        /// Pequeña constante para evitar divisiones entre cero
+        // Pequeña constante para evitar divisiones entre cero
         private const double EPSILON = 1e-7;
-       
-        /// Convierte de string a double, manejando errores de conversión        
+        /// <summary>
+        /// Convierte de string a double, manejando errores de conversión
+        /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
         private static double convertToDouble(string value)
@@ -24,7 +26,7 @@ namespace BadCalc_VeryBad
             {
                 res = Convert.ToDouble(value.Replace('.', ','));
             }
-            /// Se añade código a realizar al capturar la excepción
+            // Se añade código a realizar al capturar la excepción
             catch
             {
                 res = 0;
@@ -32,8 +34,9 @@ namespace BadCalc_VeryBad
             }
             return res;
         }
-        
-        /// Suma dos números ingresados como string        
+        /// <summary>
+        /// Suma dos números ingresados como string
+        /// </summary>
         /// <param name="valueA">Valor 1 como string</param>
         /// <param name="valueB">Valor 2 como string</param>
         /// <returns>La suma de los valores ingresados, como double</returns>
@@ -41,8 +44,9 @@ namespace BadCalc_VeryBad
         {
             return convertToDouble(valueA) + convertToDouble(valueB);
         }
-       
-        /// Resta dos números ingresados como string        
+        /// <summary>
+        /// Resta dos números ingresados como string
+        /// </summary>
         /// <param name="valueA">Valor 1 como string</param>
         /// <param name="valueB">Valor 2 como string</param>
         /// <returns>La resta de los valores ingresados, como double</returns>
@@ -50,8 +54,9 @@ namespace BadCalc_VeryBad
         {
             return convertToDouble(valueA) - convertToDouble(valueB);
         }
-        
-        /// Multiplicación dos números ingresados como string        
+        /// <summary>
+        /// Multiplicación dos números ingresados como string
+        /// </summary>
         /// <param name="valueA">Valor 1 como string</param>
         /// <param name="valueB">Valor 2 como string</param>
         /// <returns>La multiplicación de los valores ingresados, como double</returns>
@@ -59,8 +64,9 @@ namespace BadCalc_VeryBad
         {
             return convertToDouble(valueA) * convertToDouble(valueB);
         }
-       
-        /// Divide dos números ingresados como string        
+        /// <summary>
+        /// Divide dos números ingresados como string
+        /// </summary>
         /// <param name="valueA">Valor 1 como string</param>
         /// <param name="valueB">Valor 2 como string</param>
         /// <returns>La divición de los valores ingresados, como double</returns>
@@ -71,9 +77,9 @@ namespace BadCalc_VeryBad
             double divisor = Math.Abs(value2) < EPSILON ? EPSILON : value2;
             return value1 / divisor;
         }
-       
+        /// <summary>
         /// Potenciación dos números ingresados como string
-        
+        /// </summary>
         /// <param name="valueA">Valor 1 como string</param>
         /// <param name="valueB">Valor 2 como string</param>
         /// <returns>Eleva Valor 1 ptenciado a Valor 2, como double</returns>
@@ -86,9 +92,9 @@ namespace BadCalc_VeryBad
             while (iterator > 0) { value3 *= value1; iterator--; }
             return value3;
         }
-        
+        /// <summary>
         /// Modulo dos números ingresados como string
-       
+        /// </summary>
         /// <param name="valueA">Valor 1 como string</param>
         /// <param name="valueB">Valor 2 como string</param>
         /// <returns>El módulo1 de los valores ingresados, como double</returns>
@@ -96,9 +102,9 @@ namespace BadCalc_VeryBad
         {
             return convertToDouble(valueA) % convertToDouble(valueB);
         }
-        
+        /// <summary>
         /// Suma dos números ingresados como string
-      
+        /// </summary>
         /// <param name="valueA">Valor como string</param>
         /// <returns>La raiz cuadrada de un valor, como double</returns>
         public static double TrySqrt(string value)
@@ -113,9 +119,9 @@ namespace BadCalc_VeryBad
             }
             return value1;
         }
-        
+        /// <summary>
         /// Convierte el código de la operación a su símbolo correspondiente
-        
+        /// </summary>
         /// <param name="operation"></param>
         /// <returns>Operación realizada</returns>
         public static string operationToString(string operation)
